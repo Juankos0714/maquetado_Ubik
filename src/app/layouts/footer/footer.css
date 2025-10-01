@@ -1,0 +1,21 @@
+.App-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+        .footer-help{
+            display: flex;
+            flex-direction: column;
+                a{
+                    text-decoration: none;
+                }
+        }
+        .footer-contact{
+            display: flex;
+            flex-direction: column;
+                a{
+                    text-decoration: none;
+                }
+        }
+}
