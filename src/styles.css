@@ -1,26 +1,28 @@
 :root {
     --color-darkest: #0b0608;
     --color-dark: #260e18;
-    --color-mid-dark: #452635; 
-    --color-accent-main: #932236; 
+    --color-mid-dark: #452635;
+    --color-accent-main: #932236;
     --color-text-light: #ffffff;
 }
 
-html, body {
-    height: 100%; 
+html,
+body {
+    height: 100%;
     margin: 0;
     padding: 0;
 }
 
-app-root { 
+app-root {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; 
+    min-height: 100vh;
 }
 
 main {
-    flex-grow: 1; 
+    flex-grow: 1;
 }
+
 /* You can add global styles to this file, and also import other style files */
 * {
     margin: 0;
@@ -51,23 +53,12 @@ h2,
 h3,
 h4,
 h5,
-h6,
-p,
-a,
-ul,
-li,
-span {
-    font-family: 'Courier New', Courier, monospace;
-
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
 h6 {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+
 }
 
 p,
@@ -75,7 +66,10 @@ a,
 ul,
 li,
 span {
-    font-size: 1.2rem;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .buttom-primary {
