@@ -1,0 +1,174 @@
+<body>
+    
+
+    <div class="explorar-container">
+        <!-- Sidebar de Filtros -->
+        <aside class="filters-sidebar">
+            <div class="filters-header">
+                <h2>Filtros</h2>
+                <span class="clear-filters">Limpiar todo</span>
+            </div>
+
+            <!-- Precio -->
+            <div class="filter-group">
+                <h3>Precio por hora</h3>
+                <div class="price-range">
+                    <input type="number" class="price-input" placeholder="Mín" value="50000" >
+                    <input type="number" class="price-input" placeholder="Máx" value="200000">
+                </div>
+            </div>
+
+            <!-- Amenidades -->
+            <div class="filter-group">
+                <h3>Amenidades</h3>
+                <div class="filter-option">
+                    <input type="checkbox" id="jacuzzi" checked>
+                    <label for="jacuzzi">Jacuzzi</label>
+                </div>
+                <div class="filter-option">
+                    <input type="checkbox" id="parqueadero">
+                    <label for="parqueadero">Parqueadero privado</label>
+                </div>
+                <div class="filter-option">
+                    <input type="checkbox" id="bar">
+                    <label for="bar">Bar incluido</label>
+                </div>
+                <div class="filter-option">
+                    <input type="checkbox" id="tv">
+                    <label for="tv">TV Smart</label>
+                </div>
+                <div class="filter-option">
+                    <input type="checkbox" id="balcon">
+                    <label for="balcon">Balcón</label>
+                </div>
+                <div class="filter-option">
+                    <input type="checkbox" id="spa">
+                    <label for="spa">Spa</label>
+                </div>
+                <div class="filter-option">
+                    <input type="checkbox" id="aire">
+                    <label for="aire">Aire acondicionado</label>
+                </div>
+            </div>
+
+            <!-- Calificación -->
+            <div class="filter-group">
+                <h3>Calificación</h3>
+                <div class="rating-option">
+                    <input type="checkbox" id="5stars">
+                    <label for="5stars">⭐⭐⭐⭐⭐</label>
+                </div>
+                <div class="rating-option">
+                    <input type="checkbox" id="4stars">
+                    <label for="4stars">⭐⭐⭐⭐ y más</label>
+                </div>
+                <div class="rating-option">
+                    <input type="checkbox" id="3stars">
+                    <label for="3stars">⭐⭐⭐ y más</label>
+                </div>
+            </div>
+
+            <!-- Tipo de espacio -->
+            <div class="filter-group">
+                <h3>Tipo de espacio</h3>
+                <div class="filter-option">
+                    <input type="checkbox" id="suite">
+                    <label for="suite">Suite de lujo</label>
+                </div>
+                <div class="filter-option">
+                    <input type="checkbox" id="tematica">
+                    <label for="tematica">Habitación temática</label>
+                </div>
+                <div class="filter-option">
+                    <input type="checkbox" id="campestre">
+                    <label for="campestre">Cabaña campestre</label>
+                </div>
+                <div class="filter-option">
+                    <input type="checkbox" id="urbana">
+                    <label for="urbana">Urbana moderna</label>
+                </div>
+            </div>
+
+            <!-- Ubicación -->
+            <div class="filter-group">
+                <h3>Ubicación</h3>
+                <div class="filter-option">
+                    <input type="checkbox" id="armenia">
+                    <label for="armenia">Armenia</label>
+                </div>
+                <div class="filter-option">
+                    <input type="checkbox" id="montenegro">
+                    <label for="montenegro">Montenegro</label>
+                </div>
+                <div class="filter-option">
+                    <input type="checkbox" id="salento">
+                    <label for="salento">Salento</label>
+                </div>
+                <div class="filter-option">
+                    <input type="checkbox" id="calarca">
+                    <label for="calarca">Calarcá</label>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Resultados -->
+        <main class="results-container">
+            <div class="results-header">
+                <div class="results-info">
+                    <h1>Moteles en Armenia</h1>
+                    <p>24 espacios disponibles</p>
+                </div>
+                <div class="sort-options">
+                    <label>Ordenar por:</label>
+                    <select class="sort-select">
+                        <option>Recomendados</option>
+                        <option>Precio: menor a mayor</option>
+                        <option>Precio: mayor a menor</option>
+                        <option>Mejor calificados</option>
+                        <option>Más populares</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="moteles-grid">
+                @for (motel of moteles; track motel.id) {
+                    <div class="motel-card">
+                    <div class="motel-image">{{ motel.icono }}</div>
+                    <div class="motel-content">
+                        <div class="motel-header">
+                        <div class="motel-title">
+                            <h3>{{ motel.nombre }}</h3>
+                            <p class="motel-location">{{ motel.ubicacion }}</p>
+                            <div class="motel-rating">
+                            <span class="rating-number">{{ motel.rating }}</span>
+                            <span class="rating-stars">⭐⭐⭐⭐⭐</span>
+                            <span style="opacity: 0.7; font-size: 14px;">({{ motel.resenas }} reseñas)</span>
+                            </div>
+                        </div>
+                        <button class="favorite-btn" (click)="toggleFavorito(motel)">♡</button>
+                        </div>
+
+                        <div class="motel-features">
+                            @for (feature of motel.features; track $index) {
+                                <span class="feature-tag">{{ feature }}</span>
+                            }
+                        </div>
+
+                        <p class="motel-description">
+                        {{ motel.descripcion }}
+                        </p>
+
+                        <div class="motel-footer">
+                        <div class="motel-price">
+                            <span class="price-amount">{{ motel.precio }}</span>
+                            <span class="price-period">{{ motel.periodo }}</span>
+                        </div>
+                        <button class="btn-reservar">Ver disponibilidad</button>
+                        </div>
+                    </div>
+                    </div>
+                }
+                </div>
+        </main>
+    </div>
+</body>
