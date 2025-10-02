@@ -1,1 +1,40 @@
-<p>profile works!</p>
+<div class="profile-container">
+  <div class="info-user">
+
+    <!-- Top -->
+    <div class="info-top">
+      <img [src]="user.photo" alt="Foto de perfil" class="profile-photo" />
+      <h2>{{ user.name }}</h2>
+      <p>{{ user.country }}</p>
+    </div>
+
+    <!-- Middle -->
+    <div class="info-medium">
+      <button class="edit-profile-button buttom-primary">Editar Perfil</button>
+      <div class="list-links">
+        <a routerLink="/"> Atencion al cliente</a>
+        <a routerLink="/"> Centro de recursos</a>
+        <a routerLink="/"> Gestion de datos</a>
+      </div>
+    </div>
+
+    <!-- Down -->
+    <div class="info-down">
+      <button class="reservation-buttom buttom-primary">
+        <h3>Alojamientos</h3>
+        <p>Aun no has iniciado ningun viaje. Cuando hagas una reserva, aparecera aqui.</p>
+      </button>
+
+      <button class="pay-buttom buttom-primary">
+        <h3>Informacion de pagos</h3>
+        <p>Registra tus medios de pago</p>
+      </button>
+
+      <button class="list-favotite-buttom buttom-primary">
+        <h3>Lista de favoritos</h3>
+        <p>Establecimientos guardados</p>
+      </button>
+    </div>
+
+  </div>
+</div>
