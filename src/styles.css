@@ -33,7 +33,6 @@ main {
 
 :root {
     --bg-color: linear-gradient(to right, #0B0608, #501521);
-    ;
     --text-color: #ffffff;
     color-scheme: light dark;
     background-color: var(--bg-color);
