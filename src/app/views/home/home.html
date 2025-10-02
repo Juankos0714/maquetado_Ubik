@@ -1,1 +1,106 @@
-<h1>Pagina principal se mostrara al entrar a la pagina</h1>
+
+
+<div class="home-container">
+  
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-title">ENCUENTRA EL LUGAR PERFECTO<br>PARA TU MOMENTO ESPECIAL</h1>
+      <p class="hero-subtitle">Descubre moteles y espacios únicos cerca de ti, de forma rápida y segura.</p>
+      
+      <!-- Search Box -->
+      <div class="search-box">
+        <div class="search-field">
+          <label>Ubicación</label>
+          <input 
+            type="text" 
+            placeholder="¿Dónde Quieres ir ?"
+            [(ngModel)]="searchLocation"
+          >
+        </div>
+        
+        <div class="search-field">
+          <label>Fecha</label>
+          <input 
+            type="text" 
+            placeholder="Fecha / Hora"
+            [(ngModel)]="searchDate"
+          >
+        </div>
+        
+        <div class="search-field">
+          <label>Filtros rápidos</label>
+          <input 
+            type="text" 
+            placeholder="jacuzzi, parqueadero..."
+            [(ngModel)]="searchFilters"
+          >
+        </div>
+        
+        <button class="search-button" (click)="buscarEspacio()">
+          Buscar espacio ideal
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Moteles Section -->
+  <section class="moteles-section">
+    <div class="section-header">
+      <div class="logo-icon">
+        <img src="https://res.cloudinary.com/dm4h2avio/image/upload/v1759339412/Sin_t%C3%ADtulo-3-05_cazsb1.png" alt="Ubik Logo">
+      </div>
+      <div class="section-info">
+        <h2>MOTELES CERCA DE TI</h2>
+        <p>Espacios únicos para una escapada romántica en pareja</p>
+      </div>
+    </div>
+
+    <div class="moteles-grid">
+      @for (motel of moteles; track motel.id) {
+        <div class="motel-card">
+          <div class="motel-image" [ngStyle]="{'background-image': 'url(' + motel.image + ')'}">
+          </div>
+          
+          <div class="motel-info">
+            <h3 class="motel-name">{{ motel.name }}</h3>
+            <p class="motel-location">{{ motel.location }}</p>
+            
+            <div class="motel-amenities">
+              @for (amenity of motel.amenities; track amenity; let last = $last) {
+                <span>{{ amenity }}@if (!last) { <span class="separator">|</span> }</span>
+              }
+            </div>
+            
+            <div class="motel-footer">
+              <span class="motel-price">{{ formatPrice(motel.price) }}</span>
+              <a href="#" class="motel-link">Ver más</a>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </section>
+
+  <!-- Destinos Section -->
+  <section class="destinos-section">
+    <div class="section-header-simple">
+            <div class="logo-icon">
+        <img src="https://res.cloudinary.com/dm4h2avio/image/upload/v1759339412/Sin_t%C3%ADtulo-3-05_cazsb1.png" alt="Ubik Logo">
+      </div>
+      <h2>DESTINOS POPULARES</h2>
+    </div>
+    <p class="destinos-subtitle">Ciudades o municipios donde se registran más reserva</p>
+
+    <div class="destinos-grid">
+      @for (destino of destinos; track destino.id) {
+        <div class="destino-card" [ngStyle]="{'background-image': 'linear-gradient(rgba(11, 6, 8, 0.5), rgba(11, 6, 8, 0.7)), url(' + destino.image + ')'}">
+          <div class="destino-content">
+            <h3 class="destino-name">{{ destino.name }}</h3>
+            <p class="destino-description">{{ destino.description }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </section>
+</div>
