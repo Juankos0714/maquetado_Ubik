@@ -1,0 +1,290 @@
+.home-container {
+    width: 100%;
+   
+}
+
+
+/* Moteles Section */
+.moteles-section {
+    padding: 80px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .section-header {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        margin-bottom: 20px;
+
+        .logo-icon {
+            width: 180px;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            border-radius: 10px;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+
+        .section-info {
+            h2 {
+                font-size: 28px;
+                font-weight: bold;
+                color: var(--color-text-light);
+                margin: 0 0 8px;
+                letter-spacing: 1px;
+            }
+
+            p {
+                font-size: 16px;
+                color: rgba(255, 255, 255, 0.8);
+                margin: 0;
+            }
+        }
+    }
+
+    .moteles-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 30px;
+        margin-top: 40px;
+    }
+}
+
+/* Motel Card */
+.motel-card {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    .motel-image {
+        background: linear-gradient(135deg, var(--color-accent-main), var(--color-mid-dark));
+        background-size: cover;
+        background-position: center;
+        height: 180px;
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(147, 34, 54, 0.4), rgba(69, 38, 53, 0.4));
+            z-index: 1;
+        }
+    }
+
+    .motel-info {
+        padding: 20px;
+
+        .motel-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--color-darkest);
+            margin: 0 0 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .motel-location {
+            font-size: 14px;
+            color: var(--color-mid-dark);
+            margin: 0 0 15px;
+        }
+
+        .motel-amenities {
+            font-size: 14px;
+            color: var(--color-mid-dark);
+            margin: 0 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+
+            .separator {
+                margin: 0 5px;
+                color: var(--color-accent-main);
+            }
+        }
+
+        .motel-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid rgba(69, 38, 53, 0.1);
+
+            .motel-price {
+                font-size: 18px;
+                font-weight: bold;
+                color: var(--color-accent-main);
+            }
+
+            .motel-link {
+                color: var(--color-accent-main);
+                text-decoration: none;
+                font-size: 14px;
+                font-weight: 500;
+                transition: opacity 0.3s;
+
+                &:hover {
+                    opacity: 0.7;
+                }
+            }
+        }
+    }
+}
+
+/* Destinos Section */
+.destinos-section {
+    padding: 80px 40px;
+
+    .section-header-simple {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto 10px;
+
+        h2 {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--color-text-light);
+            margin: 0;
+            letter-spacing: 1px;
+        }
+
+        .logo-icon {
+            width: 180px;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            border-radius: 10px;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+
+
+
+
+            }
+        }
+    }
+
+    .destinos-subtitle {
+        font-size: 16px;
+        color: rgba(255, 255, 255, 0.8);
+        margin: 0 auto 40px;
+        max-width: 1200px;
+        padding-left: 122px;
+    }
+
+    .destinos-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+}
+
+/* Destino Card */
+.destino-card {
+    background-color: var(--color-dark);
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    height: 200px;
+    display: flex;
+    align-items: flex-end;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    .destino-content {
+        .destino-name {
+            font-size: 22px;
+            font-weight: bold;
+            color: var(--color-text-light);
+            margin: 0 0 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .destino-description {
+            font-size: 15px;
+            color: var(--color-text-light);
+            margin: 0;
+            opacity: 0.9;
+        }
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 100px 20px 60px;
+
+        .hero-content {
+            .hero-title {
+                font-size: 32px;
+            }
+
+            .hero-subtitle {
+                font-size: 16px;
+            }
+        }
+    }
+
+    .search-box {
+        flex-direction: column;
+        padding: 20px;
+
+        .search-button {
+            width: 100%;
+        }
+    }
+
+    .moteles-section,
+    .destinos-section {
+        padding: 60px 20px;
+    }
+
+    .moteles-grid,
+    .destinos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .destinos-subtitle {
+        padding-left: 0;
+    }
+
+    .section-header,
+    .section-header-simple {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+}

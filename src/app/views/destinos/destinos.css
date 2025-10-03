@@ -1,0 +1,106 @@
+main{
+    background: linear-gradient(
+        135deg,                 
+        var(--color-dark) 0%,
+        var(--color-mid-dark) 50%,
+        var(--color-accent-main) 100%
+    );
+}
+
+
+.section {
+    padding: 60px;
+}
+
+/* Header de la sección con logo y título */
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.section-logo {
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.section-title h2 {
+    font-size: 32px;
+    margin-bottom: 5px;
+}
+
+.section-title p {
+    font-size: 18px;
+    opacity: 0.8;
+}
+
+/* Filtros de búsqueda */
+.filters {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    padding: 0 60px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.filter-btn:hover {
+    background: #8B1538;
+    border-color: #8B1538;
+}
+
+/* Grid de tarjetas de destinos */
+.destinations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+    padding: 60px;
+}
+
+/* Tarjeta individual de destino */
+.destination-card {
+    background: rgba(139, 21, 56, 0.3);
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.destination-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(197, 56, 85, 0.3);
+}
+
+/* Imagen del destino */
+.destination-image {
+    width: 100%;
+    height: 250px;
+    background: linear-gradient(45deg, #8B1538, #C53855);
+}
+
+/* Información del destino */
+.destination-info {
+    padding: 25px;
+}
+
+.destination-info h3 {
+    font-size: 26px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.destination-info p {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 5px;
+}

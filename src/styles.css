@@ -1,1 +1,96 @@
-/* You can add global styles to this file, and also import other style files */
+
+/*=============================================== CONFIGURACIONES GLOBALES =====================================================*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    min-width: 0;
+    color: var(--text-color);
+
+}
+
+:root {
+    --color-darkest: #0b0608;
+    --color-dark: #260e18;
+    --color-mid-dark: #452635;
+    --color-accent-main: #932236;
+    --color-text-light: #ffffff;
+    --bg-color: linear-gradient(to right, #0B0608, hsl(348, 58%, 20%));
+    --text-color: #ffffff;
+    color-scheme: light dark;
+    background-color: var(--bg-color);
+}
+
+body {
+    background: var(--bg-color);
+}
+
+
+app-root {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    margin: 0 auto;
+    max-width: 90vw;
+    min-height: 80vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+
+}
+
+p,
+a,
+ul,
+li,
+span {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* ===========================================================  HEADER ==========================================================*/
+
+.image-bg--home{
+    background: linear-gradient(rgba(0, 0, 0, 0.884),rgba(0, 0, 0, 0.5)), url('https://res.cloudinary.com/dm4h2avio/image/upload/v1759339335/pexels-jonathanborba-2950331_fs9n0c.jpg') no-repeat center center / cover;
+}
+
+
+.image-bg--offers{
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(12, 1, 3, 0.912)), url('/assets/images/banner-bg-image-02.png') no-repeat center center / cover;
+    min-height: 600px;
+}
+
+
+/* ===========================================================  FOOTER ==========================================================*/
+
+footer {
+    background-color: var(--bg-color);
+    padding: 20px;
+}
+
+.buttom-primary {
+    background: linear-gradient(to right, #501521, #932236) no-repeat;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* body.no-footer footer {
+    display: none;
+} */    
