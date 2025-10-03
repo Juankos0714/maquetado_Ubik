@@ -1,107 +1,76 @@
-@if ((currentUrl$ | async) === '/') {
-<div class="image-bg image-bg--home">
+@if (currentUrl() === '/') {
+  <div class="image-bg image-bg--home">
     <header class="App-header">
       <nav>
         <ul>
-          <li><a routerLink="/">
-              <img src={logo1} alt="UBIK" className="logo" />
-          </a></li>
+          <li><a routerLink="/"><img src={logo1} alt="UBIK" className="logo" /></a></li>
           <li><a routerLink="/explora">Explora</a></li>
           <li><a routerLink="/destinations">Destinos</a></li>
           <li><a routerLink="/offers">Ofertas</a></li>
         </ul>
       </nav>
-    
       <div class="user-info">
         <span class="user-name"><a routerLink="/profile">Perfil</a></span>
       </div>
     </header>
 
-     <!-- Hero Section -->
-  <section class="hero-section">
-    <div class="hero-content">
-      <h1 class="hero-title">ENCUENTRA EL LUGAR PERFECTO<br>PARA TU MOMENTO ESPECIAL</h1>
-      <p class="hero-subtitle">Descubre moteles y espacios únicos cerca de ti, de forma rápida y segura.</p>
-      
-      <!-- Search Box -->
-      <div class="search-box">
-        <div class="search-field">
-          <label>Ubicación</label>
-          <input 
-            type="text" 
-            placeholder="¿Dónde Quieres ir ?"
-            [(ngModel)]="searchLocation"
-          >
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-content">
+        <h1 class="hero-title">ENCUENTRA EL LUGAR PERFECTO<br>PARA TU MOMENTO ESPECIAL</h1>
+        <p class="hero-subtitle">Descubre moteles y espacios únicos cerca de ti, de forma rápida y segura.</p>
+
+        <!-- Search Box -->
+        <div class="search-box">
+          <div class="search-field">
+            <label>Ubicación</label>
+            <input type="text" placeholder="¿Dónde Quieres ir ?" [(ngModel)]="searchLocation" />
+          </div>
+          <div class="search-field">
+            <label>Fecha</label>
+            <input type="text" placeholder="Fecha / Hora" [(ngModel)]="searchDate" />
+          </div>
+          <div class="search-field">
+            <label>Filtros rápidos</label>
+            <input type="text" placeholder="jacuzzi, parqueadero..." [(ngModel)]="searchFilters" />
+          </div>
+          <button class="search-button" (click)="buscarEspacio()">Buscar espacio ideal</button>
         </div>
-        
-        <div class="search-field">
-          <label>Fecha</label>
-          <input 
-            type="text" 
-            placeholder="Fecha / Hora"
-            [(ngModel)]="searchDate"
-          >
-        </div>
-        
-        <div class="search-field">
-          <label>Filtros rápidos</label>
-          <input 
-            type="text" 
-            placeholder="jacuzzi, parqueadero..."
-            [(ngModel)]="searchFilters"
-          >
-        </div>
-        
-        <button class="search-button" (click)="buscarEspacio()">
-          Buscar espacio ideal
-        </button>
       </div>
+    </section>
+  </div>
+
+} @else if (currentUrl().startsWith('/offers')) {
+  <div class="image-bg image-bg--offers">
+    <header class="App-header">
+      <nav>
+        <ul>
+          <li><a routerLink="/"><img src={logo1} alt="UBIK" className="logo" /></a></li>
+          <li><a routerLink="/explora">Explora</a></li>
+          <li><a routerLink="/destinations">Destinos</a></li>
+          <li><a routerLink="/offers">Ofertas</a></li>
+        </ul>
+      </nav>
+      <div class="user-info">
+        <span class="user-name"><a routerLink="/profile">Perfil</a></span>
+      </div>
+    </header>
+    <!-- Banner solo en offers -->
+    <app-banner></app-banner>
+  </div>
+
+} @else {
+  <header class="App-header">
+    <nav>
+      <ul>
+        <li><a routerLink="/"><img src={logo1} alt="UBIK" className="logo" /></a></li>
+        <li><a routerLink="/explora">Explora</a></li>
+        <li><a routerLink="/destinations">Destinos</a></li>
+        <li><a routerLink="/offers">Ofertas</a></li>
+      </ul>
+    </nav>
+    <div class="user-info">
+      <span class="user-name"><a routerLink="/profile">Perfil</a></span>
     </div>
-  </section>
-
-
-</div>
-
-}@else if((currentUrl$ | async) === "/offers") {
-<div class="image-bg image-bg--offers">
-    <header class="App-header">
-      <!--<img src={logo1} alt="Logo UBIK" className="logo" />-->
-      <nav>
-        <ul>
-          <li><a routerLink="/">
-              <img src={logo1} alt="UBIK" className="logo" />
-          </a></li>
-          <li><a routerLink="/explora">Explora</a></li>
-          <li><a routerLink="/destinations">Destinos</a></li>
-          <li><a routerLink="/offers">Ofertas</a></li>
-        </ul>
-      </nav>
-    
-      <div class="user-info">
-        <span class="user-name"><a routerLink="/profile">Perfil</a></span>
-      </div>
-    </header>
-
-      <app-banner></app-banner>
-
-</div>
-}@else {
-
-     <header class="App-header">
-      <!--<img src={logo1} alt="Logo UBIK" className="logo" />-->
-      <nav>
-        <ul>
-          <li><a routerLink="/">
-              <img src={logo1} alt="UBIK" className="logo" />
-          </a></li>
-          <li><a routerLink="/explora">Explora</a></li>
-          <li><a routerLink="/destinations">Destinos</a></li>
-          <li><a routerLink="/offers">Ofertas</a></li>
-        </ul>
-      </nav>
-    
-      <div class="user-info">
-        <span class="user-name"><a routerLink="/profile">Perfil</a></span>
-      </div>
-    </header>
+  </header>
 }

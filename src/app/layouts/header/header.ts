@@ -1,9 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component, signal } from '@angular/core';
+import { Component, effect, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
-import { filter, map, Observable, startWith } from 'rxjs';
-import { Router, NavigationEnd } from '@angular/router';
+import { RouterModule, Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs';
 import { Banner } from '../../components/banner/banner';
 
 interface Motel {
@@ -29,31 +28,41 @@ interface Destination {
   styleUrl: './header.css'
 })
 export class Header {
-
+  // items del menú como signal
   items = signal([
     { label: 'Inicio', route: '/' },
     { label: 'Explorar', route: '/explora' },
     { label: 'Destinos', route: '/destinations' },
     { label: 'Ofertas', route: '/offers' },
     { label: 'Perfil', route: '/profile' },
-
   ]);
 
-  currentUrl$: Observable<string>;
-
+  // ahora currentUrl es un signal
+  currentUrl = signal<string>('/');
 
   constructor(private router: Router) {
-    this.currentUrl$ = this.router.events.pipe(
-      filter((event) => event instanceof NavigationEnd),
-      map((event: any) => event.urlAfterRedirects),
-      startWith(this.router.url)
-    );
+    // Inicializamos con la URL actual normalizada
+    this.currentUrl.set(this.normalizeUrl(this.router.url));
+
+    // Escuchamos los cambios de navegación y actualizamos el signal
+    this.router.events.pipe(
+      filter((event) => event instanceof NavigationEnd)
+    ).subscribe((event: any) => {
+      this.currentUrl.set(this.normalizeUrl(event.urlAfterRedirects));
+    });
   }
 
+  private normalizeUrl(url: string): string {
+    let clean = url.split('?')[0].replace(/\/$/, '');
+    return clean === '' ? '/' : clean;
+  }
+
+  // Variables de búsqueda
   searchLocation: string = '';
   searchDate: string = '';
   searchFilters: string = '';
 
+  // Datos de moteles
   moteles: Motel[] = [
     {
       id: 1,
@@ -89,6 +98,7 @@ export class Header {
     }
   ];
 
+  // Datos de destinos
   destinos: Destination[] = [
     {
       id: 1,
@@ -110,12 +120,11 @@ export class Header {
     }
   ];
 
- buscarEspacio(): void {
+  buscarEspacio(): void {
     console.log('Buscando:', {
       location: this.searchLocation,
       date: this.searchDate,
       filters: this.searchFilters
     });
   }
-
 }
