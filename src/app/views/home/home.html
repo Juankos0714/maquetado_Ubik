@@ -2,48 +2,6 @@
 
 <div class="home-container">
   
-  <!-- Hero Section -->
-  <section class="hero-section">
-    <div class="hero-content">
-      <h1 class="hero-title">ENCUENTRA EL LUGAR PERFECTO<br>PARA TU MOMENTO ESPECIAL</h1>
-      <p class="hero-subtitle">Descubre moteles y espacios únicos cerca de ti, de forma rápida y segura.</p>
-      
-      <!-- Search Box -->
-      <div class="search-box">
-        <div class="search-field">
-          <label>Ubicación</label>
-          <input 
-            type="text" 
-            placeholder="¿Dónde Quieres ir ?"
-            [(ngModel)]="searchLocation"
-          >
-        </div>
-        
-        <div class="search-field">
-          <label>Fecha</label>
-          <input 
-            type="text" 
-            placeholder="Fecha / Hora"
-            [(ngModel)]="searchDate"
-          >
-        </div>
-        
-        <div class="search-field">
-          <label>Filtros rápidos</label>
-          <input 
-            type="text" 
-            placeholder="jacuzzi, parqueadero..."
-            [(ngModel)]="searchFilters"
-          >
-        </div>
-        
-        <button class="search-button" (click)="buscarEspacio()">
-          Buscar espacio ideal
-        </button>
-      </div>
-    </div>
-  </section>
-
   <!-- Moteles Section -->
   <section class="moteles-section">
     <div class="section-header">

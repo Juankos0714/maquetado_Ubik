@@ -1,0 +1,21 @@
+.banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 425px;
+
+    .banner-content {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        width: 60%;
+        color: var(--color-text-light);
+        padding: 0 20px;
+        gap: 50px;
+        
+        h2{
+            font-size: 48px;
+            font-weight: bold;
+        }
+    }
+}

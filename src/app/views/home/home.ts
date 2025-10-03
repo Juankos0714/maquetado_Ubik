@@ -85,14 +85,7 @@ export class Home {
     }
   ];
 
-  buscarEspacio(): void {
-    console.log('Buscando:', {
-      location: this.searchLocation,
-      date: this.searchDate,
-      filters: this.searchFilters
-    });
-  }
-
+  
   formatPrice(price: number): string {
     return `$ ${price.toLocaleString('es-CO')}`;
   }
