@@ -1,7 +1,9 @@
 [build]
-  command = "ng build --configuration production"
-  publish = "dist/maquetado_Ubik"
+  command = "npm run build"
+  publish = "dist/ubik/browser"
 
+[[plugins]]
+  package = "@netlify/angular-runtime"
 
 [[redirects]]
   from = "/*"
